@@ -14,7 +14,7 @@ class sysctl (Boolean $purge,
   }
 
   $values.each | String $val, Hash $params | {  
-    sysctl::configuration { $val:
+    sysctl::define { $val:
       * => $defaults + $params,
     }
   }
@@ -38,4 +38,6 @@ class sysctl (Boolean $purge,
       }
     }
   }
+
+  Sysctl::Configuration <||>
 }
